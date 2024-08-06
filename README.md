@@ -1,0 +1,1 @@
+A draft of my [design document](https://docs.google.com/document/d/1FxYZKs4ZSF1tmlP6n_xYveOcGYrzZFuyZPlaPHaKC98/edit?usp=sharing) can be found here and feel free to comment so I can improve it.
