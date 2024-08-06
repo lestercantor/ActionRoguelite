@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EntityMovementStats" load_steps=2 format=3 uid="uid://b156uyywhc8xy"]
+
+[ext_resource type="Script" path="res://Resources/EntityMovementStats.gd" id="1_p2p1u"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_p2p1u")
+max_speed = 100.0
+acceleration = 1000.0
+friction = 700.0

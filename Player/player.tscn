@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://l5wnrn2jacup"]
+
+[ext_resource type="Script" path="res://Components/EntityMovementVelocityInput.gd" id="1_ihc2l"]
+[ext_resource type="Script" path="res://Resources/EntityMovementStats.gd" id="2_p2bt7"]
+[ext_resource type="Script" path="res://Components/EntityMovement.gd" id="3_wmfu0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57wrj"]
+
+[sub_resource type="Resource" id="Resource_6lqlv"]
+script = ExtResource("2_p2bt7")
+max_speed = 200.0
+acceleration = 1000.0
+friction = 700.0
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_57wrj")
+
+[node name="EntityMovementVelocityInput" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("1_ihc2l")
+actor = NodePath("..")
+movement_stats = SubResource("Resource_6lqlv")
+
+[node name="EntityMovement" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_wmfu0")
+actor = NodePath("..")
