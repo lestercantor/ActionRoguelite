@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://l5wnrn2jacup"]
+[gd_scene load_steps=9 format=3 uid="uid://l5wnrn2jacup"]
 
 [ext_resource type="Script" path="res://Components/EntityMovementVelocityInput.gd" id="1_ihc2l"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xrxky"]
 [ext_resource type="Script" path="res://Resources/EntityMovementStats.gd" id="2_p2bt7"]
 [ext_resource type="Script" path="res://Components/EntityMovement.gd" id="3_wmfu0"]
+[ext_resource type="Script" path="res://Components/Hitbox_Component.gd" id="5_yglbr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_57wrj"]
 
@@ -12,6 +13,8 @@ script = ExtResource("2_p2bt7")
 max_speed = 150.0
 acceleration = 1000.0
 friction = 700.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02qy5"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_xrxky")
@@ -29,3 +32,10 @@ movement_stats = SubResource("Resource_6lqlv")
 [node name="EntityMovement" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("3_wmfu0")
 actor = NodePath("..")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+script = ExtResource("5_yglbr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_02qy5")
+debug_color = Color(0.792352, 0.42679, 0.0308799, 0.42)
