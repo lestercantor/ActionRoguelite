@@ -1,23 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnnewq2qr1kb0"]
+[gd_scene load_steps=4 format=3 uid="uid://bnnewq2qr1kb0"]
 
 [ext_resource type="Script" path="res://Components/Hurtbox_Component.gd" id="1_0h55c"]
 [ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_7iiy7"]
-[ext_resource type="Script" path="res://Resources/Stats_Component.gd" id="3_qbcca"]
 
-[sub_resource type="Resource" id="Resource_ugk27"]
-script = ExtResource("3_qbcca")
-damage = 1.0
-health = 100.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eirom"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aepv6"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_7iiy7")
 
 [node name="HurtboxComponent" type="Area2D" parent="."]
 script = ExtResource("1_0h55c")
-stats_component = SubResource("Resource_ugk27")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-shape = SubResource("RectangleShape2D_eirom")
-debug_color = Color(0.959506, 0, 0.521247, 0.42)
+shape = SubResource("RectangleShape2D_aepv6")
+debug_color = Color(0.968328, 0, 0.468572, 0.42)
