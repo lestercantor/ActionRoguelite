@@ -10,9 +10,10 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func test(_hitbox: HitboxComponent, attack: Attack) -> void:
+	# Subtract health with the damage that was dealt
 	stats_component.health -= attack.damage
 	print("health remaining: ", stats_component.health)
