@@ -14,3 +14,5 @@ func _on_area_entered(hurtbox: HurtboxComponent) -> void:
 	hit_hurtbox.emit(hurtbox)
 	
 	hurtbox.hurt.emit(self, attack)
+	
+	print("damage dealt: ", attack.damage)

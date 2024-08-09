@@ -29,6 +29,7 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("debug_key"):
 		print("damage multiplier: ", stats_component.damage_multiplier)
+		print("current damage: ", hitbox_component.attack.damage)
 	
 	if Input.is_action_just_pressed("add_damage"):
 		add_damage()
