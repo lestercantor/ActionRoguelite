@@ -11,5 +11,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func test(_hitbox: HitboxComponent, damage: float) -> void:
-	print("damage: ", damage)
+func test(_hitbox: HitboxComponent, attack: Attack) -> void:
+	print("damage: ", attack.damage)
