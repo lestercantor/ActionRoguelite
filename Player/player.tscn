@@ -36,6 +36,8 @@ script = ExtResource("3_wmfu0")
 actor = NodePath("..")
 
 [node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
 script = ExtResource("5_yglbr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
