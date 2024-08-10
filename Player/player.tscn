@@ -39,8 +39,8 @@ actor = NodePath("..")
 
 [node name="WeaponComponent" type="Node" parent="." node_paths=PackedStringArray("hitbox_component")]
 script = ExtResource("6_2jltc")
-current_weapon = ExtResource("2_18ygg")
 hitbox_component = NodePath("../HitboxComponent")
+current_weapon = ExtResource("2_18ygg")
 
 [node name="HitboxComponent" type="Area2D" parent="."]
 collision_layer = 0

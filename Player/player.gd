@@ -8,15 +8,8 @@ extends CharacterBody2D
 @onready var weapon_component: WeaponComponent = $WeaponComponent
 
 @export var stats_component: StatsComponent
-#@export var current_weapon: Weapon:
-	#set(new_weapon):
-		#if current_weapon == new_weapon: return
-		#
-		#current_weapon = new_weapon
-		##if is_node_ready():
-			##_update()
-		#
-	
+
+
 func _ready() -> void:
 	#_update()
 	weapon_component.set_damage(stats_component.damage_multiplier)
@@ -33,13 +26,7 @@ func _input(event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("add_damage"):
 		add_damage()
-#func set_damage(amount: float) -> void:
-	#hitbox_component.damage = amount
-#
-#func _update() -> void:
-	#if current_weapon != null:
-		#set_damage(current_weapon.damage)
-		#print(current_weapon.name)
+
 func add_damage() -> void: 
 	stats_component.damage_multiplier += 0.10
 	weapon_component.set_damage(stats_component.damage_multiplier)
