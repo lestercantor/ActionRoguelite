@@ -1,13 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://l5wnrn2jacup"]
+[gd_scene load_steps=14 format=3 uid="uid://l5wnrn2jacup"]
 
 [ext_resource type="Script" path="res://Components/EntityMovementVelocityInput.gd" id="1_ihc2l"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xrxky"]
+[ext_resource type="Script" path="res://Stats/Stats_Component.gd" id="2_1yjp5"]
 [ext_resource type="Resource" uid="uid://dwf0mbcsichxw" path="res://Weapons/Spear.tres" id="2_18ygg"]
 [ext_resource type="Script" path="res://Resources/EntityMovementStats.gd" id="2_p2bt7"]
-[ext_resource type="Resource" uid="uid://cske6tb2qc2kd" path="res://Stats/StatsResource.tres" id="2_rbs2l"]
+[ext_resource type="Resource" uid="uid://dpisqnloqqnvt" path="res://Upgrades/Additive_Damage.tres" id="3_1uwou"]
 [ext_resource type="Script" path="res://Components/EntityMovement.gd" id="3_wmfu0"]
 [ext_resource type="Script" path="res://Components/Hitbox_Component.gd" id="5_yglbr"]
 [ext_resource type="Script" path="res://Components/Weapon_Component.gd" id="6_2jltc"]
+
+[sub_resource type="Resource" id="Resource_7gfuf"]
+script = ExtResource("2_1yjp5")
+damage_multiplier = 1.0
+damage_addition = 0.0
+max_health = 1000.0
+health = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_57wrj"]
 
@@ -21,7 +29,8 @@ friction = 700.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_xrxky")
-stats_component = ExtResource("2_rbs2l")
+stats = SubResource("Resource_7gfuf")
+upgrades = ExtResource("3_1uwou")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

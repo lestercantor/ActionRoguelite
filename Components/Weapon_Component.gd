@@ -12,10 +12,10 @@ extends Node
 		if is_node_ready():
 			_update()
 
-func set_damage(multipliers: float) -> void:
+func set_damage(multipliers: float, additions: float) -> void:
 	# Set the damage of the hitbox with the current weapon damage 
 	# And multiply the damage with any multipliers (for future upgrades - this will probably be changed)
-	hitbox_component.attack.damage = current_weapon.damage * multipliers
+	hitbox_component.attack.damage = (current_weapon.damage + additions) * multipliers
 	
 func _update() -> void:
 	if current_weapon != null:

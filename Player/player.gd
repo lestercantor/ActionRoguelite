@@ -7,12 +7,13 @@ extends CharacterBody2D
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
 @onready var weapon_component: WeaponComponent = $WeaponComponent
 
-@export var stats_component: StatsComponent
-
+@export var stats: StatsComponent
+@export var upgrades: BaseUpgrade:
+	set(value):
+		upgrades = value
 
 func _ready() -> void:
-	#_update()
-	weapon_component.set_damage(stats_component.damage_multiplier)
+	weapon_component.set_damage(stats.damage_multiplier, stats.damage_addition)
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -21,13 +22,10 @@ func _process(_delta: float) -> void:
 	# add animations here based on player input 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("debug_key"):
-		print("damage multiplier: ", stats_component.damage_multiplier)
+		print("damage multiplier: ", stats.damage_multiplier)
 		print("current damage: ", hitbox_component.attack.damage)
-	
-	if Input.is_action_just_pressed("add_damage"):
-		add_damage()
-
-func add_damage() -> void: 
-	stats_component.damage_multiplier += 0.10
-	weapon_component.set_damage(stats_component.damage_multiplier)
-	print("damage multiplier: ", stats_component.damage_multiplier)
+		
+	if event.is_action_pressed("add_damage"):
+		upgrades.apply_upgrade(stats)
+		weapon_component.set_damage(stats.damage_multiplier, stats.damage_addition)
+		print(stats.damage_addition)

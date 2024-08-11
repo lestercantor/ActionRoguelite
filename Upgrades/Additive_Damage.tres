@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="AdditiveDamageUpgrade" load_steps=2 format=3 uid="uid://dpisqnloqqnvt"]
+
+[ext_resource type="Script" path="res://Upgrades/AdditiveDamageUpgrade.gd" id="1_3role"]
+
+[resource]
+script = ExtResource("1_3role")
+increase = 10.0
+upgrade_text = "+Damage"

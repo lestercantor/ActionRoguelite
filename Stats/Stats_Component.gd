@@ -6,6 +6,7 @@ signal no_health
 signal health_changed
 
 @export var damage_multiplier: float = 1.0
+@export var damage_addition: float = 0.0
 @export var max_health: float = 1000.0
 @export var health: float = 100.0:
 	set(value):
