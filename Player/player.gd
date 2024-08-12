@@ -29,6 +29,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("add_damage"):
 		upgrades.apply_upgrade(stats)
 		weapon_component.set_damage(stats.damage_multiplier, stats.damage_addition)
+		stats.movement_stats.max_speed = 1000
 		print("player damage addition: ", stats.damage_addition)
 	
 	if event.is_action_pressed("primary"):
@@ -36,6 +37,7 @@ func _input(event: InputEvent) -> void:
 		hitbox_component.rotation = direction.angle()
 		$HitboxComponent/CollisionShape2D.disabled = false
 		$Timer.start()
+		entity_movement.attack_lunge(1.2, direction, stats.movement_stats.max_speed)
 
 
 func _on_timer_timeout() -> void:

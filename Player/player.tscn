@@ -4,14 +4,16 @@
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xrxky"]
 [ext_resource type="Script" path="res://Stats/Stats_Component.gd" id="2_1yjp5"]
 [ext_resource type="Resource" uid="uid://dwf0mbcsichxw" path="res://Weapons/Spear.tres" id="2_18ygg"]
-[ext_resource type="Script" path="res://Resources/EntityMovementStats.gd" id="2_p2bt7"]
+[ext_resource type="Resource" uid="uid://b156uyywhc8xy" path="res://Resources/EntityMovementStats.tres" id="2_pdwk5"]
 [ext_resource type="Resource" uid="uid://dpisqnloqqnvt" path="res://Upgrades/Additive_Damage.tres" id="3_1uwou"]
 [ext_resource type="Script" path="res://Components/EntityMovement.gd" id="3_wmfu0"]
 [ext_resource type="Script" path="res://Components/Hitbox_Component.gd" id="5_yglbr"]
 [ext_resource type="Script" path="res://Components/Weapon_Component.gd" id="6_2jltc"]
+[ext_resource type="Resource" uid="uid://cske6tb2qc2kd" path="res://Stats/StatsResource.tres" id="6_6dgxx"]
 
 [sub_resource type="Resource" id="Resource_7gfuf"]
 script = ExtResource("2_1yjp5")
+movement_stats = ExtResource("2_pdwk5")
 damage_multiplier = 1.0
 damage_addition = 0.0
 max_health = 1000.0
@@ -19,15 +21,13 @@ health = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_57wrj"]
 
-[sub_resource type="Resource" id="Resource_6lqlv"]
-script = ExtResource("2_p2bt7")
-max_speed = 150.0
-acceleration = 1000.0
-friction = 700.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5q4uf"]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+slide_on_ceiling = false
+platform_floor_layers = 4294901760
+platform_wall_layers = 1
 script = ExtResource("1_xrxky")
 stats = SubResource("Resource_7gfuf")
 upgrades = ExtResource("3_1uwou")
@@ -40,7 +40,7 @@ shape = SubResource("CircleShape2D_57wrj")
 [node name="EntityMovementVelocityInput" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("1_ihc2l")
 actor = NodePath("..")
-movement_stats = SubResource("Resource_6lqlv")
+movement_stats = ExtResource("6_6dgxx")
 
 [node name="EntityMovement" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("3_wmfu0")

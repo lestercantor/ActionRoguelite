@@ -3,7 +3,7 @@ extends Node
 
 @export var actor: CharacterBody2D
 # Slide angle is mainly for platformers
-@export var min_slide_angle: float = 5
+@export var min_slide_angle: float = 0.2
 
 func _ready() -> void:
 	actor.wall_min_slide_angle = min_slide_angle
@@ -13,3 +13,8 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	actor.move_and_slide()
+
+
+
+func attack_lunge(lunge_speed: float, direction: Vector2, max_speed: float) -> void:
+	actor.velocity = direction.normalized() * max_speed * lunge_speed

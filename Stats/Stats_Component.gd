@@ -5,8 +5,14 @@ extends Resource
 signal no_health
 signal health_changed
 
+# Movement related variables
+@export var movement_stats: EntityMovementStats
+
+# Damage related variables
 @export var damage_multiplier: float = 1.0
 @export var damage_addition: float = 0.0
+
+# Health related variables
 @export var max_health: float = 1000.0
 @export var health: float = 100.0:
 	set(value):

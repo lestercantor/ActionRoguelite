@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="StatsComponent" load_steps=2 format=3 uid="uid://cske6tb2qc2kd"]
+[gd_resource type="Resource" script_class="StatsComponent" load_steps=3 format=3 uid="uid://cske6tb2qc2kd"]
 
+[ext_resource type="Resource" uid="uid://b156uyywhc8xy" path="res://Resources/EntityMovementStats.tres" id="1_ba1ca"]
 [ext_resource type="Script" path="res://Stats/Stats_Component.gd" id="1_rucww"]
 
 [resource]
 script = ExtResource("1_rucww")
+movement_stats = ExtResource("1_ba1ca")
 damage_multiplier = 1.0
 damage_addition = 0.0
 max_health = 1000.0
