@@ -1,3 +1,4 @@
+class_name Enemy
 extends Node2D
 
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent

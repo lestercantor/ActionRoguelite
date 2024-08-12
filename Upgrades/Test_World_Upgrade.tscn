@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjw7ebh5x3e0m"]
+
+[ext_resource type="Script" path="res://Upgrades/Test_World_Upgrade.gd" id="1_og2bl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cie40"]
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_og2bl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cie40")

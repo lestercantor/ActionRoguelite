@@ -14,4 +14,3 @@ func _physics_process(delta: float) -> void:
 	else:
 		actor.velocity = actor.velocity.move_toward(Vector2.ZERO, movement_stats.movement_stats.friction * delta)
 		
-	print(actor.velocity)

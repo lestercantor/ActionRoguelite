@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MultiplicativeDamage" load_steps=2 format=3 uid="uid://b5rffhknq2mx8"]
+
+[ext_resource type="Script" path="res://Upgrades/Multiplicative_Damage.gd" id="1_hv2le"]
+
+[resource]
+script = ExtResource("1_hv2le")
+increase_percentage = 2.0
+upgrade_text = "*Damage"

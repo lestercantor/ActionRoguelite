@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Components/Hurtbox_Component.gd" id="1_0h55c"]
 [ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_7iiy7"]
 [ext_resource type="Resource" uid="uid://cske6tb2qc2kd" path="res://Stats/StatsResource.tres" id="2_flnjj"]
-[ext_resource type="Resource" uid="uid://dpisqnloqqnvt" path="res://Upgrades/Additive_Damage.tres" id="3_a0y6m"]
+[ext_resource type="Resource" uid="uid://dpisqnloqqnvt" path="res://Upgrades/RES_Additive_Damage.tres" id="3_a0y6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aepv6"]
 

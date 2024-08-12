@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://b711yw3elgm3q"]
+[gd_scene load_steps=10 format=3 uid="uid://b711yw3elgm3q"]
 
 [ext_resource type="Script" path="res://test_world.gd" id="1_3a6y7"]
 [ext_resource type="PackedScene" uid="uid://l5wnrn2jacup" path="res://Player/player.tscn" id="1_kphcb"]
 [ext_resource type="PackedScene" uid="uid://bnnewq2qr1kb0" path="res://Enemies/enemy.tscn" id="2_pnw0i"]
 [ext_resource type="Script" path="res://Stats/Stats_Component.gd" id="4_sqhnl"]
+[ext_resource type="PackedScene" uid="uid://cjw7ebh5x3e0m" path="res://Upgrades/Test_World_Upgrade.tscn" id="5_lu26f"]
+[ext_resource type="Resource" uid="uid://dpisqnloqqnvt" path="res://Upgrades/RES_Additive_Damage.tres" id="6_h8ql5"]
+[ext_resource type="Resource" uid="uid://b5rffhknq2mx8" path="res://Upgrades/RES_Multiplicative_Damage.tres" id="7_vwsgx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rj7ph"]
-size = Vector2(179, 141.5)
-
-[sub_resource type="Resource" id="Resource_tq080"]
+[sub_resource type="Resource" id="Resource_vqlao"]
 resource_local_to_scene = true
 script = ExtResource("4_sqhnl")
 damage_multiplier = 1.0
@@ -16,7 +16,7 @@ damage_addition = 0.0
 max_health = 1000.0
 health = 1000.0
 
-[sub_resource type="Resource" id="Resource_0462e"]
+[sub_resource type="Resource" id="Resource_j5ixo"]
 resource_local_to_scene = true
 script = ExtResource("4_sqhnl")
 damage_multiplier = 1.0
@@ -35,14 +35,18 @@ position = Vector2(468, 215)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(15, 12, 47, 124, -30, 207, -66, 293, 77, 378, 18, 429, 134, 478, 242, 471, 272, 397, 356, 462, 371, 513, 493, 509, 571, 511, 593, 458, 652, 426, 686, 399, 731, 482, 706, 527, 788, 503, 898, 344, 843, 132, 724, 92, 604, 37, 520, 115, 264, 11, 220, -95, 18, 17, 436, -95, 821, -43, 1043, 232, 776, 654, -78, 607, -154, 227, -63, -11)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(340, 251)
-shape = SubResource("RectangleShape2D_rj7ph")
-
 [node name="Enemy" parent="." instance=ExtResource("2_pnw0i")]
 position = Vector2(547, 252)
-stats_component = SubResource("Resource_tq080")
+stats_component = SubResource("Resource_vqlao")
 
 [node name="Enemy2" parent="." instance=ExtResource("2_pnw0i")]
 position = Vector2(547, 211)
-stats_component = SubResource("Resource_0462e")
+stats_component = SubResource("Resource_j5ixo")
+
+[node name="Area2D" parent="." instance=ExtResource("5_lu26f")]
+position = Vector2(355, 304)
+upgrade = ExtResource("6_h8ql5")
+
+[node name="Area2D2" parent="." instance=ExtResource("5_lu26f")]
+position = Vector2(347, 255)
+upgrade = ExtResource("7_vwsgx")

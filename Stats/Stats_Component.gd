@@ -5,6 +5,8 @@ extends Resource
 signal no_health
 signal health_changed
 
+signal stat_changed
+
 # Movement related variables
 @export var movement_stats: EntityMovementStats
 
@@ -27,3 +29,7 @@ signal health_changed
 		# Signal that there is no health so we can queue_free()
 		if health <= 0: no_health.emit()
 
+func new_stat(stat_name: StringName, increase: float, stat: float):
+	stat += increase
+	set(stat_name, stat)
+	stat_changed.emit()

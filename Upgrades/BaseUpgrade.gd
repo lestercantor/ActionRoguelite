@@ -3,5 +3,5 @@ extends Resource
 
 @export var upgrade_text: String = ""
 
-func apply_upgrade(_stats: StatsComponent):
+func apply_upgrade(stats: StatsComponent):
 	pass
