@@ -25,7 +25,18 @@ func _input(event: InputEvent) -> void:
 		print("damage multiplier: ", stats.damage_multiplier)
 		print("current damage: ", hitbox_component.attack.damage)
 		
+	# Testing if upgrades are working with the particular stat
 	if event.is_action_pressed("add_damage"):
 		upgrades.apply_upgrade(stats)
 		weapon_component.set_damage(stats.damage_multiplier, stats.damage_addition)
-		print(stats.damage_addition)
+		print("player damage addition: ", stats.damage_addition)
+	
+	if event.is_action_pressed("primary"):
+		var direction: Vector2 = (get_global_mouse_position() - position).normalized()
+		hitbox_component.rotation = direction.angle()
+		$HitboxComponent/CollisionShape2D.disabled = false
+		$Timer.start()
+
+
+func _on_timer_timeout() -> void:
+	$HitboxComponent/CollisionShape2D.disabled = true

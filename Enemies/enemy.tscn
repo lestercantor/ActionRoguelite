@@ -1,20 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnnewq2qr1kb0"]
+[gd_scene load_steps=6 format=3 uid="uid://bnnewq2qr1kb0"]
 
 [ext_resource type="Script" path="res://Components/Hurtbox_Component.gd" id="1_0h55c"]
 [ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_7iiy7"]
 [ext_resource type="Resource" uid="uid://cske6tb2qc2kd" path="res://Stats/StatsResource.tres" id="2_flnjj"]
+[ext_resource type="Resource" uid="uid://dpisqnloqqnvt" path="res://Upgrades/Additive_Damage.tres" id="3_a0y6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aepv6"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_7iiy7")
 stats_component = ExtResource("2_flnjj")
+upgrades = ExtResource("3_a0y6m")
 
-[node name="HurtboxComponent" type="Area2D" parent="."]
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("collision_shape", "invincibility_timer")]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_0h55c")
+collision_shape = NodePath("CollisionShape2D")
+invincibility_timer = NodePath("InvincibilityTimer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("RectangleShape2D_aepv6")
 debug_color = Color(0.968328, 0, 0.468572, 0.42)
+
+[node name="InvincibilityTimer" type="Timer" parent="HurtboxComponent"]
+
+[connection signal="invincible_end" from="HurtboxComponent" to="HurtboxComponent" method="_on_invincible_end"]
+[connection signal="invincible_start" from="HurtboxComponent" to="HurtboxComponent" method="_on_invincible_start"]

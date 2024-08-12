@@ -1,9 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://b711yw3elgm3q"]
+[gd_scene load_steps=7 format=3 uid="uid://b711yw3elgm3q"]
 
+[ext_resource type="Script" path="res://test_world.gd" id="1_3a6y7"]
 [ext_resource type="PackedScene" uid="uid://l5wnrn2jacup" path="res://Player/player.tscn" id="1_kphcb"]
 [ext_resource type="PackedScene" uid="uid://bnnewq2qr1kb0" path="res://Enemies/enemy.tscn" id="2_pnw0i"]
+[ext_resource type="Script" path="res://Stats/Stats_Component.gd" id="4_sqhnl"]
+
+[sub_resource type="Resource" id="Resource_nifoh"]
+resource_local_to_scene = true
+script = ExtResource("4_sqhnl")
+damage_multiplier = 1.0
+damage_addition = 0.0
+max_health = 1000.0
+health = 1000.0
+
+[sub_resource type="Resource" id="Resource_pqfkp"]
+resource_local_to_scene = true
+script = ExtResource("4_sqhnl")
+damage_multiplier = 1.0
+damage_addition = 0.0
+max_health = 1000.0
+health = 1000.0
 
 [node name="TestWorld" type="Node2D"]
+script = ExtResource("1_3a6y7")
 
 [node name="Player" parent="." instance=ExtResource("1_kphcb")]
 position = Vector2(468, 215)
@@ -16,3 +35,8 @@ polygon = PackedVector2Array(15, 12, 47, 124, -30, 207, -66, 293, 77, 378, 18, 4
 
 [node name="Enemy" parent="." instance=ExtResource("2_pnw0i")]
 position = Vector2(547, 252)
+stats_component = SubResource("Resource_nifoh")
+
+[node name="Enemy2" parent="." instance=ExtResource("2_pnw0i")]
+position = Vector2(547, 211)
+stats_component = SubResource("Resource_pqfkp")

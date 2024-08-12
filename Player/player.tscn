@@ -57,5 +57,13 @@ collision_mask = 16
 script = ExtResource("5_yglbr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(20, 0)
 shape = SubResource("RectangleShape2D_5q4uf")
+disabled = true
 debug_color = Color(0.63983, 0.52497, 0, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
