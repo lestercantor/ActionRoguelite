@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://dpisqnloqqnvt" path="res://Upgrades/RES_Additive_Damage.tres" id="6_h8ql5"]
 [ext_resource type="Resource" uid="uid://b5rffhknq2mx8" path="res://Upgrades/RES_Multiplicative_Damage.tres" id="7_vwsgx"]
 
-[sub_resource type="Resource" id="Resource_vqlao"]
+[sub_resource type="Resource" id="Resource_n8pxq"]
 resource_local_to_scene = true
 script = ExtResource("4_sqhnl")
 damage_multiplier = 1.0
@@ -16,7 +16,7 @@ damage_addition = 0.0
 max_health = 1000.0
 health = 1000.0
 
-[sub_resource type="Resource" id="Resource_j5ixo"]
+[sub_resource type="Resource" id="Resource_0xwki"]
 resource_local_to_scene = true
 script = ExtResource("4_sqhnl")
 damage_multiplier = 1.0
@@ -37,11 +37,11 @@ polygon = PackedVector2Array(15, 12, 47, 124, -30, 207, -66, 293, 77, 378, 18, 4
 
 [node name="Enemy" parent="." instance=ExtResource("2_pnw0i")]
 position = Vector2(547, 252)
-stats_component = SubResource("Resource_vqlao")
+stats_component = SubResource("Resource_n8pxq")
 
 [node name="Enemy2" parent="." instance=ExtResource("2_pnw0i")]
 position = Vector2(547, 211)
-stats_component = SubResource("Resource_j5ixo")
+stats_component = SubResource("Resource_0xwki")
 
 [node name="Area2D" parent="." instance=ExtResource("5_lu26f")]
 position = Vector2(355, 304)
