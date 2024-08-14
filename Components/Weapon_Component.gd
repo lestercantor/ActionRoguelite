@@ -1,23 +1,18 @@
 class_name WeaponComponent
-extends Node
+extends Node2D
 
+@onready var stats: StatsComponent = get_owner().stats
+
+# Get the hitbox component of this scene
 @export var hitbox_component: HitboxComponent
 
 # Get the information weapon from a resource 
-@export var current_weapon: Weapon:
-	set(new_weapon):
-		if current_weapon == new_weapon: return
-		
-		current_weapon = new_weapon
-		if is_node_ready():
-			_update()
-	
-func set_damage(multipliers: float, additions: float) -> void:
-	# Set the damage of the hitbox with the current weapon damage 
-	# And multiply the damage with any multipliers (for future upgrades - this will probably be changed)
-	hitbox_component.attack.damage = (current_weapon.damage + additions) * multipliers
-	
-func _update() -> void:
-	if current_weapon != null:
-		hitbox_component.attack.damage = current_weapon.damage
-		print(current_weapon.name)
+@export var current_weapon: Weapon
+
+# Calculate damage to deal by getting the stats resource from the owner
+func calc_damage() -> Attack:
+	# Make a new instance of the attack class to pass through to the hitbox
+	# So it can pass the signal to the hurtbox
+	var new_attack = Attack.new()
+	new_attack.damage = (current_weapon.damage + stats.damage_addition) * stats.damage_multiplier * stats.calc_crit()
+	return new_attack

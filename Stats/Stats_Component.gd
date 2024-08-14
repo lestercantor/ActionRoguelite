@@ -14,6 +14,8 @@ signal stat_changed
 @export var damage_multiplier: float = 1.0
 @export var damage_addition: float = 0.0
 
+@export var crit_chance: float = 0.0
+
 # Health related variables
 @export var max_health: float = 1000.0
 @export var health: float = 100.0:
@@ -29,6 +31,19 @@ signal stat_changed
 		# Signal that there is no health so we can queue_free()
 		if health <= 0: no_health.emit()
 
+# Return value is the critical hit modifier and a random number is generated
+# To find out if the the players crit chance is less than the random number
+# Then apply the appropriate crit
+func calc_crit() -> float:
+	var rand_num = randf_range(0, 1) 
+	print("random number generator: ", rand_num)
+	if rand_num < crit_chance:
+		return 1.75
+	else:
+		return 1
+
+# Get the variable name of the stat and increase its value by an amount to increase
+# (Currently have the upgrades as a collision in world but this function should be the same)
 func new_stat(stat_name: StringName, increase: float, stat: float):
 	stat += increase
 	set(stat_name, stat)

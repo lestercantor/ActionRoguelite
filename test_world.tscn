@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b711yw3elgm3q"]
+[gd_scene load_steps=11 format=3 uid="uid://b711yw3elgm3q"]
 
 [ext_resource type="Script" path="res://test_world.gd" id="1_3a6y7"]
 [ext_resource type="PackedScene" uid="uid://l5wnrn2jacup" path="res://Player/player.tscn" id="1_kphcb"]
@@ -7,20 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://cjw7ebh5x3e0m" path="res://Upgrades/Test_World_Upgrade.tscn" id="5_lu26f"]
 [ext_resource type="Resource" uid="uid://dpisqnloqqnvt" path="res://Upgrades/RES_Additive_Damage.tres" id="6_h8ql5"]
 [ext_resource type="Resource" uid="uid://b5rffhknq2mx8" path="res://Upgrades/RES_Multiplicative_Damage.tres" id="7_vwsgx"]
+[ext_resource type="Resource" uid="uid://dfchpi7mbpien" path="res://Upgrades/RES_Critical_Hit_Chance.tres" id="8_g7h68"]
 
-[sub_resource type="Resource" id="Resource_n8pxq"]
+[sub_resource type="Resource" id="Resource_4w732"]
 resource_local_to_scene = true
 script = ExtResource("4_sqhnl")
 damage_multiplier = 1.0
 damage_addition = 0.0
+crit_chance = 0.0
 max_health = 1000.0
 health = 1000.0
 
-[sub_resource type="Resource" id="Resource_0xwki"]
+[sub_resource type="Resource" id="Resource_xesfk"]
 resource_local_to_scene = true
 script = ExtResource("4_sqhnl")
 damage_multiplier = 1.0
 damage_addition = 0.0
+crit_chance = 0.0
 max_health = 1000.0
 health = 1000.0
 
@@ -37,11 +40,11 @@ polygon = PackedVector2Array(15, 12, 47, 124, -30, 207, -66, 293, 77, 378, 18, 4
 
 [node name="Enemy" parent="." instance=ExtResource("2_pnw0i")]
 position = Vector2(547, 252)
-stats_component = SubResource("Resource_n8pxq")
+stats_component = SubResource("Resource_4w732")
 
 [node name="Enemy2" parent="." instance=ExtResource("2_pnw0i")]
 position = Vector2(547, 211)
-stats_component = SubResource("Resource_0xwki")
+stats_component = SubResource("Resource_xesfk")
 
 [node name="Area2D" parent="." instance=ExtResource("5_lu26f")]
 position = Vector2(355, 304)
@@ -50,3 +53,7 @@ upgrade = ExtResource("6_h8ql5")
 [node name="Area2D2" parent="." instance=ExtResource("5_lu26f")]
 position = Vector2(347, 255)
 upgrade = ExtResource("7_vwsgx")
+
+[node name="Area2D3" parent="." instance=ExtResource("5_lu26f")]
+position = Vector2(355, 220)
+upgrade = ExtResource("8_g7h68")
