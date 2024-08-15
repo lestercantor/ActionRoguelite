@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://l5wnrn2jacup"]
+[gd_scene load_steps=15 format=3 uid="uid://l5wnrn2jacup"]
 
 [ext_resource type="Script" path="res://Components/EntityMovementVelocityInput.gd" id="1_ihc2l"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xrxky"]
@@ -7,8 +7,9 @@
 [ext_resource type="Resource" uid="uid://b156uyywhc8xy" path="res://Resources/EntityMovementStats.tres" id="2_pdwk5"]
 [ext_resource type="Script" path="res://Components/EntityMovement.gd" id="3_wmfu0"]
 [ext_resource type="Script" path="res://Components/Hitbox_Component.gd" id="5_yglbr"]
-[ext_resource type="Script" path="res://Components/Weapon_Component.gd" id="6_2jltc"]
 [ext_resource type="Resource" uid="uid://cske6tb2qc2kd" path="res://Stats/StatsResource.tres" id="6_6dgxx"]
+[ext_resource type="Script" path="res://Components/ProjectileSpawnerComponent.gd" id="7_78kjq"]
+[ext_resource type="Script" path="res://Components/MeleeWeaponComponent.gd" id="7_blk6y"]
 [ext_resource type="PackedScene" uid="uid://blusjk6mhhglr" path="res://Weapons/Projectiles/Base_Projectile.tscn" id="9_saafk"]
 
 [sub_resource type="Resource" id="Resource_7gfuf"]
@@ -17,6 +18,7 @@ movement_stats = ExtResource("2_pdwk5")
 damage_multiplier = 1.0
 damage_addition = 0.0
 crit_chance = 0.0
+spell_crit_chance = 0.0
 max_health = 1000.0
 health = 100.0
 
@@ -46,17 +48,20 @@ movement_stats = ExtResource("6_6dgxx")
 script = ExtResource("3_wmfu0")
 actor = NodePath("..")
 
-[node name="WeaponComponent" type="Node2D" parent="."]
-script = ExtResource("6_2jltc")
-current_weapon = ExtResource("2_18ygg")
+[node name="ProjectileSpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("7_78kjq")
 projectile = ExtResource("9_saafk")
 
-[node name="HitboxComponent" type="Area2D" parent="WeaponComponent"]
+[node name="MeleeWeaponComponent" type="Node2D" parent="."]
+script = ExtResource("7_blk6y")
+melee_weapon = ExtResource("2_18ygg")
+
+[node name="HitboxComponent" type="Area2D" parent="MeleeWeaponComponent"]
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("5_yglbr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponComponent/HitboxComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeWeaponComponent/HitboxComponent"]
 position = Vector2(20, 0)
 shape = SubResource("RectangleShape2D_5q4uf")
 disabled = true

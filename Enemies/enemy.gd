@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 func test(_hitbox: HitboxComponent, attack: Attack) -> void:
 	# Subtract health with the damage that was dealt
 	stats_component.health -= attack.damage
-	hurtbox_component.start_invincibility(1)
+	hurtbox_component.start_invincibility(0.1)
 	print("health remaining: ", stats_component.health)
 
 func _input(event: InputEvent) -> void:

@@ -5,8 +5,9 @@ extends CharacterBody2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var entity_movement_input: EntityMovementVelocityInput = $EntityMovementVelocityInput
 @onready var entity_movement: EntityMovement = $EntityMovement
-@onready var hitbox_component: HitboxComponent = $WeaponComponent/HitboxComponent
-@onready var weapon_component: WeaponComponent = $WeaponComponent
+@onready var hitbox_component: HitboxComponent = $MeleeWeaponComponent/HitboxComponent
+@onready var weapon_component: WeaponComponent = $MeleeWeaponComponent
+@onready var projectile_spawner: ProjectileSpawnerComponent = $ProjectileSpawnerComponent
 
 @export var stats: StatsComponent
 var time: float = 0
@@ -29,12 +30,12 @@ func _input(event: InputEvent) -> void:
 	var direction: Vector2 = (get_global_mouse_position() - position).normalized()
 	if event.is_action_pressed("primary"):
 		hitbox_component.rotation = direction.angle()
-		time = weapon_component.current_weapon.attack_speed
-		$WeaponComponent/HitboxComponent/CollisionShape2D.disabled = false
+		time = weapon_component.melee_weapon.attack_speed
+		$MeleeWeaponComponent/HitboxComponent/CollisionShape2D.disabled = false
 		entity_movement.attack_lunge(1.2, direction, stats.movement_stats.max_speed)
 	
 	if event.is_action_pressed("skill 1"):
-		weapon_component.shoot_projectile(direction)
+		projectile_spawner.shoot_projectile(direction)
 
 	if event.is_action_pressed("debug_key"):
 		print("damage multiplier: ", stats.damage_multiplier)
