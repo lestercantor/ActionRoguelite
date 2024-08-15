@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://blusjk6mhhglr"]
+
+[ext_resource type="Script" path="res://Weapons/Projectiles/BaseProjectile.gd" id="1_jvju6"]
+[ext_resource type="Script" path="res://Components/Hitbox_Component.gd" id="2_1dxq4"]
+[ext_resource type="Resource" uid="uid://0wiiebrnr8a4" path="res://Weapons/Projectiles/RES_Fireball.tres" id="2_7apcc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t74fe"]
+
+[node name="BaseProjectile" type="CharacterBody2D"]
+script = ExtResource("1_jvju6")
+projectile = ExtResource("2_7apcc")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("2_1dxq4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_t74fe")
+debug_color = Color(0.387801, 0.611644, 1.92523e-07, 0.42)

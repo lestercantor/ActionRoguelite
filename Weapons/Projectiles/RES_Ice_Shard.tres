@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BaseProjectile" load_steps=2 format=3 uid="uid://gn2f2wqpmthl"]
+
+[ext_resource type="Script" path="res://Weapons/Projectiles/Projectile.gd" id="1_30yph"]
+
+[resource]
+script = ExtResource("1_30yph")
+damage = 85.0
+name = ""
+speed = 100.0

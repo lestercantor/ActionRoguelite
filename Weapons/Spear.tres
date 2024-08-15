@@ -6,3 +6,6 @@
 script = ExtResource("1_t8lx6")
 name = "Spear"
 damage = 150.0
+attack_speed = 0.1
+can_crit = true
+melee = false
