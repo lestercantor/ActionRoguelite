@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_30yph")
 damage = 85.0
-name = ""
+name = "Ice Shard"
 speed = 100.0
+decay_timer = 3.0

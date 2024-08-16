@@ -5,5 +5,7 @@
 [resource]
 script = ExtResource("1_06868")
 damage = 100.0
-name = ""
+name = "Fireball"
 speed = 150.0
+decay_timer = 1.0
+mana_cost = 30.0

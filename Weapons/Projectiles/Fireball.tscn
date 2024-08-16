@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b85qsasf2tp8"]
+
+[ext_resource type="PackedScene" uid="uid://blusjk6mhhglr" path="res://Weapons/Projectiles/Base_Projectile.tscn" id="1_whe53"]
+[ext_resource type="Resource" uid="uid://0wiiebrnr8a4" path="res://Weapons/Projectiles/RES_Fireball.tres" id="2_g16wp"]
+
+[node name="BaseProjectile" instance=ExtResource("1_whe53")]
+projectile = ExtResource("2_g16wp")

@@ -5,6 +5,8 @@ extends Resource
 signal no_health
 signal health_changed
 
+signal mana_changed
+
 signal stat_changed
 
 # Movement related variables
@@ -34,6 +36,11 @@ signal stat_changed
 		# Signal that there is no health so we can queue_free()
 		if health <= 0: no_health.emit()
 
+@export var max_mana: float = 1000.0
+@export var mana: float = 100.0:
+	set(value):
+		mana = snappedf(clampf(value, 0, max_mana), 0.01)
+		mana_changed.emit()
 # Return value is the critical hit modifier and a random number is generated
 # To find out if the the players crit chance is less than the random number
 # Then apply the appropriate crit

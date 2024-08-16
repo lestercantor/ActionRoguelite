@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://cske6tb2qc2kd" path="res://Stats/StatsResource.tres" id="6_6dgxx"]
 [ext_resource type="Script" path="res://Components/ProjectileSpawnerComponent.gd" id="7_78kjq"]
 [ext_resource type="Script" path="res://Components/MeleeWeaponComponent.gd" id="7_blk6y"]
-[ext_resource type="PackedScene" uid="uid://blusjk6mhhglr" path="res://Weapons/Projectiles/Base_Projectile.tscn" id="9_saafk"]
+[ext_resource type="PackedScene" uid="uid://b85qsasf2tp8" path="res://Weapons/Projectiles/Fireball.tscn" id="8_vlcd8"]
 
 [sub_resource type="Resource" id="Resource_7gfuf"]
 script = ExtResource("2_1yjp5")
@@ -21,6 +21,8 @@ crit_chance = 0.0
 spell_crit_chance = 0.0
 max_health = 1000.0
 health = 100.0
+max_mana = 1000.0
+mana = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_57wrj"]
 
@@ -50,7 +52,7 @@ actor = NodePath("..")
 
 [node name="ProjectileSpawnerComponent" type="Node2D" parent="."]
 script = ExtResource("7_78kjq")
-projectile = ExtResource("9_saafk")
+projectile_scene = ExtResource("8_vlcd8")
 
 [node name="MeleeWeaponComponent" type="Node2D" parent="."]
 script = ExtResource("7_blk6y")
