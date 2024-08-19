@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="BaseProjectile" load_steps=2 format=3 uid="uid://0wiiebrnr8a4"]
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://0wiiebrnr8a4"]
 
-[ext_resource type="Script" path="res://Weapons/Projectiles/Projectile.gd" id="1_06868"]
+[ext_resource type="Script" path="res://Weapons/Projectiles/Ability.gd" id="1_06868"]
+[ext_resource type="PackedScene" uid="uid://b85qsasf2tp8" path="res://Weapons/Projectiles/Fireball.tscn" id="1_dbuox"]
 
 [resource]
 script = ExtResource("1_06868")
@@ -9,3 +10,4 @@ name = "Fireball"
 speed = 150.0
 decay_timer = 1.0
 mana_cost = 30.0
+projectile_scene = ExtResource("1_dbuox")

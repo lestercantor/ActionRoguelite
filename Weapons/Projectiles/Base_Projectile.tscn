@@ -10,7 +10,6 @@ script = ExtResource("1_jvju6")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-autostart = true
 
 [node name="HitboxComponent" type="Area2D" parent="."]
 collision_layer = 0

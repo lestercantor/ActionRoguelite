@@ -15,8 +15,11 @@ signal stat_changed
 # Damage related variables
 @export var damage_multiplier: float = 1.0
 @export var damage_addition: float = 0.0
-
 @export var crit_chance: float = 0.0
+
+
+@export var spell_multiplier: float = 1.0
+@export var spell_addition: float = 0.0
 @export var spell_crit_chance: float = 0.0
 
 # Health related variables

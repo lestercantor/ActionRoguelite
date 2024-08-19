@@ -7,9 +7,11 @@ extends CharacterBody2D
 @onready var entity_movement: EntityMovement = $EntityMovement
 @onready var hitbox_component: HitboxComponent = $MeleeWeaponComponent/HitboxComponent
 @onready var weapon_component: WeaponComponent = $MeleeWeaponComponent
-@onready var projectile_spawner: ProjectileSpawnerComponent = $ProjectileSpawnerComponent
+#@onready var projectile_spawner: ProjectileSpawnerComponent = $ProjectileSpawnerComponent
 
 @export var stats: StatsComponent
+@export var ability1: Ability
+
 var time: float = 0
 
 func _ready() -> void:
@@ -35,7 +37,7 @@ func _input(event: InputEvent) -> void:
 		entity_movement.attack_lunge(1.2, direction, stats.movement_stats.max_speed)
 	
 	if event.is_action_pressed("skill 1"):
-		projectile_spawner.shoot_projectile(direction)
+		ability1.use_ability(self, direction)
 
 	if event.is_action_pressed("debug_key"):
 		print("damage multiplier: ", stats.damage_multiplier)

@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="BaseProjectile" load_steps=2 format=3 uid="uid://gn2f2wqpmthl"]
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://gn2f2wqpmthl"]
 
-[ext_resource type="Script" path="res://Weapons/Projectiles/Projectile.gd" id="1_30yph"]
+[ext_resource type="Script" path="res://Weapons/Projectiles/Ability.gd" id="1_30yph"]
+[ext_resource type="PackedScene" uid="uid://bdqm6x0cgbajd" path="res://Weapons/Projectiles/Ice Shard.tscn" id="1_v4u3b"]
 
 [resource]
 script = ExtResource("1_30yph")
 damage = 85.0
 name = "Ice Shard"
-speed = 100.0
-decay_timer = 3.0
+speed = 150.0
+decay_timer = 5.0
+mana_cost = 25.0
+projectile_scene = ExtResource("1_v4u3b")
