@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MultiplicativeSpell" load_steps=2 format=3 uid="uid://dr2ux6m6d5ask"]
+
+[ext_resource type="Script" path="res://Upgrades/SpellDamageMultiplier.gd" id="1_yjfvo"]
+
+[resource]
+script = ExtResource("1_yjfvo")
+increase_percentage = 5.0
+upgrade_text = ""

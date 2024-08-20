@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="AdditiveSpellUpgrade" load_steps=2 format=3 uid="uid://dwmkv5x7grp27"]
+
+[ext_resource type="Script" path="res://Upgrades/SpellDamageAdditive.gd" id="1_hwnum"]
+
+[resource]
+script = ExtResource("1_hwnum")
+increase = 10.0
+upgrade_text = ""

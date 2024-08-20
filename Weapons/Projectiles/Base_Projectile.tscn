@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://blusjk6mhhglr"]
 
-[ext_resource type="Script" path="res://Weapons/Projectiles/BaseProjectile.gd" id="1_jvju6"]
+[ext_resource type="Script" path="res://Weapons/Projectiles/Projectile.gd" id="1_jvju6"]
 [ext_resource type="Script" path="res://Components/Hitbox_Component.gd" id="2_1dxq4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t74fe"]
@@ -13,7 +13,7 @@ one_shot = true
 
 [node name="HitboxComponent" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 16
+collision_mask = 4
 script = ExtResource("2_1dxq4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]

@@ -8,7 +8,7 @@ extends CharacterBody2D
 # Something that needs work... I want it inside calc_damage as local variable
 var new_attack = Attack.new()
 
-# General vector direction passed in through from the spawner component
+# Variables passed through from the ability script when instantiating the projectile
 var direction: Vector2
 var decay_timer: float
 var speed: float
@@ -16,6 +16,8 @@ var speed: float
 func _ready() -> void:
 	timer.timeout.connect(queue_free)
 	hitbox_component.hit_hurtbox.connect(on_hit)
+	# Having the timer on autostart always seemed to set it to its default timer... 
+	# Passing in the decay_timer in the start function seem
 	timer.start(decay_timer)
 
 # Move the projectile in the given direction using its speed

@@ -6,8 +6,8 @@ extends WeaponComponent
 func calc_damage() -> Attack:
 	# Make a new instance of the attack class to pass through to the hitbox
 	# So it can pass the signal to the hurtbox
-	var new_attack = Attack.new()
-	new_attack.damage = (melee_weapon.damage + stats.damage_addition) * stats.damage_multiplier * check_can_crit()
+	var calculated_damage: float = (melee_weapon.damage + stats.damage_addition) * stats.damage_multiplier * check_can_crit()
+	var new_attack = Attack._damage(calculated_damage)
 	return new_attack
 
 func check_can_crit() -> float:

@@ -1,41 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://b711yw3elgm3q"]
+[gd_scene load_steps=10 format=3 uid="uid://b711yw3elgm3q"]
 
 [ext_resource type="Script" path="res://test_world.gd" id="1_3a6y7"]
 [ext_resource type="PackedScene" uid="uid://l5wnrn2jacup" path="res://Player/player.tscn" id="1_kphcb"]
-[ext_resource type="PackedScene" uid="uid://bnnewq2qr1kb0" path="res://Enemies/enemy.tscn" id="2_pnw0i"]
-[ext_resource type="Script" path="res://Stats/Stats_Component.gd" id="4_sqhnl"]
+[ext_resource type="PackedScene" uid="uid://bnnewq2qr1kb0" path="res://Enemies/Enemy.tscn" id="2_pnw0i"]
 [ext_resource type="PackedScene" uid="uid://cjw7ebh5x3e0m" path="res://Upgrades/Test_World_Upgrade.tscn" id="5_lu26f"]
 [ext_resource type="Resource" uid="uid://dpisqnloqqnvt" path="res://Upgrades/RES_Additive_Damage.tres" id="6_h8ql5"]
 [ext_resource type="Resource" uid="uid://b5rffhknq2mx8" path="res://Upgrades/RES_Multiplicative_Damage.tres" id="7_vwsgx"]
 [ext_resource type="Resource" uid="uid://dfchpi7mbpien" path="res://Upgrades/RES_Critical_Hit_Chance.tres" id="8_g7h68"]
-
-[sub_resource type="Resource" id="Resource_faf0b"]
-resource_local_to_scene = true
-script = ExtResource("4_sqhnl")
-damage_multiplier = 1.0
-damage_addition = 0.0
-crit_chance = 0.0
-spell_multiplier = 1.0
-spell_addition = 0.0
-spell_crit_chance = 0.0
-max_health = 1000.0
-health = 1000.0
-max_mana = 1000.0
-mana = 100.0
-
-[sub_resource type="Resource" id="Resource_k3ydc"]
-resource_local_to_scene = true
-script = ExtResource("4_sqhnl")
-damage_multiplier = 1.0
-damage_addition = 0.0
-crit_chance = 0.0
-spell_multiplier = 1.0
-spell_addition = 0.0
-spell_crit_chance = 0.0
-max_health = 1000.0
-health = 1000.0
-max_mana = 1000.0
-mana = 100.0
+[ext_resource type="Resource" uid="uid://dr2ux6m6d5ask" path="res://Upgrades/RES_Multiplicative_Spell.tres" id="9_0vfkx"]
+[ext_resource type="Resource" uid="uid://dwmkv5x7grp27" path="res://Upgrades/RES_Additive_Spell.tres" id="10_iqmkb"]
 
 [node name="TestWorld" type="Node2D"]
 script = ExtResource("1_3a6y7")
@@ -50,28 +23,42 @@ polygon = PackedVector2Array(15, 12, 47, 124, -30, 207, -66, 293, 77, 378, 18, 4
 
 [node name="Enemy" parent="." instance=ExtResource("2_pnw0i")]
 position = Vector2(547, 252)
-stats_component = SubResource("Resource_faf0b")
 
 [node name="Enemy2" parent="." instance=ExtResource("2_pnw0i")]
 position = Vector2(547, 211)
-stats_component = SubResource("Resource_k3ydc")
 
 [node name="Area2D" parent="." instance=ExtResource("5_lu26f")]
-position = Vector2(355, 304)
+position = Vector2(367, 160)
 upgrade = ExtResource("6_h8ql5")
 
 [node name="Area2D4" parent="." instance=ExtResource("5_lu26f")]
-position = Vector2(394, 295)
+position = Vector2(396, 170)
 upgrade = ExtResource("6_h8ql5")
 
 [node name="Area2D5" parent="." instance=ExtResource("5_lu26f")]
-position = Vector2(436, 278)
+position = Vector2(380, 134)
 upgrade = ExtResource("6_h8ql5")
 
 [node name="Area2D2" parent="." instance=ExtResource("5_lu26f")]
-position = Vector2(347, 255)
+position = Vector2(464, 164)
 upgrade = ExtResource("7_vwsgx")
 
 [node name="Area2D3" parent="." instance=ExtResource("5_lu26f")]
-position = Vector2(355, 220)
+position = Vector2(461, 136)
 upgrade = ExtResource("8_g7h68")
+
+[node name="Area2D6" parent="." instance=ExtResource("5_lu26f")]
+position = Vector2(369, 297)
+upgrade = ExtResource("9_0vfkx")
+
+[node name="Area2D7" parent="." instance=ExtResource("5_lu26f")]
+position = Vector2(393, 293)
+upgrade = ExtResource("9_0vfkx")
+
+[node name="Area2D8" parent="." instance=ExtResource("5_lu26f")]
+position = Vector2(421, 293)
+upgrade = ExtResource("10_iqmkb")
+
+[node name="Area2D9" parent="." instance=ExtResource("5_lu26f")]
+position = Vector2(445, 288)
+upgrade = ExtResource("10_iqmkb")
