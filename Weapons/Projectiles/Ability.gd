@@ -9,6 +9,7 @@ signal no_mana
 @export var speed: float
 @export var decay_timer: float
 @export var mana_cost: float
+@export var cooldown: float
 
 # Make and store the specific projectile scene
 # Mainly for different sprites and collisions
@@ -20,17 +21,16 @@ func use_ability(entity: Node2D, direction: Vector2) -> void:
 	if projectile_scene == null:
 		projectile_scene = load("res://Weapons/Projectiles/" + name +".tscn")
 	
-	var projectile: Projectile = projectile_scene.instantiate()
-	projectile.new_attack = projectile_damage(entity.stats)
-	projectile.speed = speed
-	projectile.decay_timer = decay_timer
+	# Set variables inside the projectile script before adding to scene tree...
+	# Using function inside the projectile to decouple and to enforce readability
+	var projectile: Projectile = projectile_scene.instantiate().with_data(entity, direction, decay_timer, speed, projectile_damage(entity.stats))
 	
+	# Get the entity that cast it and add to scene tree from the root 
+	# Making it a child of the entity that cast it means it will follow its position and rotation
+	# Which is unwanted behaviour
 	entity.get_tree().root.add_child(projectile)
-	projectile.direction = direction
-	projectile.global_position = entity.global_position
-	projectile.rotation = direction.angle()
 	
-	print("entity cast " + name)
+	#print("entity cast " + name)
 
 # Boolean check to see if the entity has less mana than the cost of the ability
 # So the ability won't be instantiated in memory 
@@ -42,7 +42,6 @@ func can_cast_ability(entity_stats: StatsComponent) -> bool:
 	else:
 		# Subtract the mana cost from the entity's mana
 		entity_stats.mana -= mana_cost
-		print(entity_stats.mana)
 		return false
 
 # Calculate damage to passed 

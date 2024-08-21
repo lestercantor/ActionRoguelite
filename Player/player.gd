@@ -55,4 +55,3 @@ func player_hurt(_hitbox: HitboxComponent, received_attack: Attack) -> void:
 	# Subtract health with the damage that was dealt
 	stats.health -= received_attack.damage
 	hurtbox_component.start_invincibility(1)
-	print("player health remaining: ", stats.health)

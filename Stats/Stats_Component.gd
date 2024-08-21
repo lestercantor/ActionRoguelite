@@ -13,16 +13,20 @@ signal stat_changed
 @export var movement_stats: EntityMovementStats
 
 # Damage related variables
+@export_group("Damage Related")
 @export var damage_multiplier: float = 1.0
 @export var damage_addition: float = 0.0
 @export var crit_chance: float = 0.0
 
+@export var crit_damage_modifier: float = 1.75
 
+@export_group("Spell Damage Related")
 @export var spell_multiplier: float = 1.0
 @export var spell_addition: float = 0.0
 @export var spell_crit_chance: float = 0.0
 
 # Health related variables
+@export_group("Health Related")
 @export var max_health: float = 1000.0
 @export var health: float = 100.0:
 	set(value):
@@ -39,11 +43,13 @@ signal stat_changed
 		# Signal that there is no health so we can queue_free()
 		if health <= 0: no_health.emit()
 
+@export_group("Mana Related")
 @export var max_mana: float = 1000.0
 @export var mana: float = 100.0:
 	set(value):
 		mana = snappedf(clampf(value, 0, max_mana), 0.01)
 		mana_changed.emit()
+		
 # Return value is the critical hit modifier and a random number is generated
 # To find out if the the players crit chance is less than the random number
 # Then apply the appropriate crit
@@ -51,7 +57,7 @@ func calc_crit(chance) -> float:
 	var rand_num = randf_range(0, 1) 
 	print("random number generator: ", rand_num)
 	if rand_num < chance:
-		return 1.75
+		return crit_damage_modifier
 	else:
 		return 1
 

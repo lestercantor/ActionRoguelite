@@ -16,6 +16,8 @@ signal invincible_end
 func _ready() -> void:
 	# Connect to the timeout signal from the timer node
 	invincibility_timer.timeout.connect(timer_timeout)
+	invincible_start.connect(_on_invincible_start)
+	invincible_end.connect(_on_invincible_end)
 
 var invincible: bool = false:
 	# Setter for being invincible and then emit the relevant signal

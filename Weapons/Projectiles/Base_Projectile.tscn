@@ -8,12 +8,9 @@
 [node name="BaseProjectile" type="CharacterBody2D"]
 script = ExtResource("1_jvju6")
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
 [node name="HitboxComponent" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 0
 script = ExtResource("2_1dxq4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]

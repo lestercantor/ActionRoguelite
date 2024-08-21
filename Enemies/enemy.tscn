@@ -32,5 +32,3 @@ debug_color = Color(0.968328, 0, 0.468572, 0.42)
 [node name="InvincibilityTimer" type="Timer" parent="HurtboxComponent"]
 
 [connection signal="timeout" from="Shoot Ability" to="." method="_on_shoot_ability_timeout"]
-[connection signal="invincible_end" from="HurtboxComponent" to="HurtboxComponent" method="_on_invincible_end"]
-[connection signal="invincible_start" from="HurtboxComponent" to="HurtboxComponent" method="_on_invincible_start"]
