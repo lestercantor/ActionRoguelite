@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnnewq2qr1kb0"]
+[gd_scene load_steps=8 format=3 uid="uid://bnnewq2qr1kb0"]
 
 [ext_resource type="Script" path="res://Components/Hurtbox_Component.gd" id="1_0h55c"]
 [ext_resource type="Script" path="res://Enemies/Enemy.gd" id="1_7iiy7"]
 [ext_resource type="Resource" uid="uid://cske6tb2qc2kd" path="res://Stats/StatsResource.tres" id="2_flnjj"]
 [ext_resource type="Resource" uid="uid://dpisqnloqqnvt" path="res://Upgrades/RES_Additive_Damage.tres" id="3_a0y6m"]
 [ext_resource type="Resource" uid="uid://0wiiebrnr8a4" path="res://Weapons/Projectiles/RES_Fireball.tres" id="4_moubx"]
+[ext_resource type="PackedScene" uid="uid://c6ca4w3lktqbl" path="res://UI/health_bar.tscn" id="6_wn24x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aepv6"]
 
@@ -30,5 +31,16 @@ shape = SubResource("RectangleShape2D_aepv6")
 debug_color = Color(0.968328, 0, 0.468572, 0.42)
 
 [node name="InvincibilityTimer" type="Timer" parent="HurtboxComponent"]
+
+[node name="HealthBar" parent="." instance=ExtResource("6_wn24x")]
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = -19.0
+offset_top = 13.0
+offset_right = 19.0
+offset_bottom = 25.0
+grow_vertical = 1
+size_flags_vertical = 8
 
 [connection signal="timeout" from="Shoot Ability" to="." method="_on_shoot_ability_timeout"]
