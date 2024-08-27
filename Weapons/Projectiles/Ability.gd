@@ -15,11 +15,16 @@ signal no_mana
 # Mainly for different sprites and collisions
 var projectile_scene: PackedScene
 
+func _init() -> void:
+	projectile_scene = load("res://Weapons/Projectiles/" + name +".tscn")
+	
+func button_data(button: AbilityButton) -> Ability:
+	button.timer.wait_time = cooldown
+	return self
+
+
 func use_ability(entity: Node2D, direction: Vector2) -> void:
 	if can_cast_ability(entity.stats): return
-	
-	if projectile_scene == null:
-		projectile_scene = load("res://Weapons/Projectiles/" + name +".tscn")
 	
 	# Set variables inside the projectile script before adding to scene tree...
 	# Using function inside the projectile to decouple and to enforce readability

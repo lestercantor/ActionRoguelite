@@ -3,17 +3,19 @@ extends Node2D
 
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 
+var ability: Ability = null
+
 @export var stats: StatsComponent 
 @export var upgrades: BaseUpgrade:
 	set(value):
 		upgrades = value
 
-@export var ability: Ability
 @onready var player: Player = get_tree().current_scene.get_node("Player")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hurtbox_component.hurt.connect(test)
 	stats.no_health.connect(queue_free)
+	ability = Fireball.new()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

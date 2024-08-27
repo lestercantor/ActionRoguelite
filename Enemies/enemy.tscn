@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnnewq2qr1kb0"]
+[gd_scene load_steps=7 format=3 uid="uid://bnnewq2qr1kb0"]
 
 [ext_resource type="Script" path="res://Components/Hurtbox_Component.gd" id="1_0h55c"]
 [ext_resource type="Script" path="res://Enemies/Enemy.gd" id="1_7iiy7"]
 [ext_resource type="Resource" uid="uid://cske6tb2qc2kd" path="res://Stats/StatsResource.tres" id="2_flnjj"]
 [ext_resource type="Resource" uid="uid://dpisqnloqqnvt" path="res://Upgrades/RES_Additive_Damage.tres" id="3_a0y6m"]
-[ext_resource type="Resource" uid="uid://0wiiebrnr8a4" path="res://Weapons/Projectiles/RES_Fireball.tres" id="4_moubx"]
 [ext_resource type="PackedScene" uid="uid://c6ca4w3lktqbl" path="res://UI/health_bar.tscn" id="6_wn24x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aepv6"]
@@ -13,7 +12,6 @@
 script = ExtResource("1_7iiy7")
 stats = ExtResource("2_flnjj")
 upgrades = ExtResource("3_a0y6m")
-ability = ExtResource("4_moubx")
 
 [node name="Shoot Ability" type="Timer" parent="."]
 wait_time = 2.0

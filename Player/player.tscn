@@ -6,12 +6,12 @@
 [ext_resource type="Resource" uid="uid://dwf0mbcsichxw" path="res://Weapons/Spear.tres" id="2_18ygg"]
 [ext_resource type="Resource" uid="uid://b156uyywhc8xy" path="res://Resources/EntityMovementStats.tres" id="2_pdwk5"]
 [ext_resource type="Script" path="res://Components/EntityMovement.gd" id="3_wmfu0"]
-[ext_resource type="Resource" uid="uid://gn2f2wqpmthl" path="res://Weapons/Projectiles/RES_Ice_Shard.tres" id="4_5twyk"]
-[ext_resource type="Resource" uid="uid://0wiiebrnr8a4" path="res://Weapons/Projectiles/RES_Fireball.tres" id="4_7qpve"]
 [ext_resource type="Script" path="res://Components/Hitbox_Component.gd" id="5_yglbr"]
 [ext_resource type="Resource" uid="uid://cske6tb2qc2kd" path="res://Stats/StatsResource.tres" id="6_6dgxx"]
 [ext_resource type="Script" path="res://Components/MeleeWeaponComponent.gd" id="7_blk6y"]
 [ext_resource type="Script" path="res://Components/Hurtbox_Component.gd" id="12_ccyqd"]
+[ext_resource type="PackedScene" uid="uid://djm24jp5u4n1o" path="res://UI/ability_button.tscn" id="13_ejewt"]
+[ext_resource type="Script" path="res://UI/action_bar.gd" id="13_ohrbg"]
 
 [sub_resource type="Resource" id="Resource_7gfuf"]
 script = ExtResource("2_1yjp5")
@@ -41,8 +41,6 @@ platform_floor_layers = 4294901760
 platform_wall_layers = 1
 script = ExtResource("1_xrxky")
 stats = SubResource("Resource_7gfuf")
-ability1 = ExtResource("4_5twyk")
-ability2 = ExtResource("4_7qpve")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -89,3 +87,22 @@ invincibility_timer = NodePath("InvincibilityTimer")
 shape = SubResource("CircleShape2D_5ab2d")
 
 [node name="InvincibilityTimer" type="Timer" parent="HurtboxComponent"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("13_ohrbg")
+
+[node name="TextureButton" parent="CanvasLayer/HBoxContainer" instance=ExtResource("13_ejewt")]
+layout_mode = 2
+size_flags_horizontal = 4

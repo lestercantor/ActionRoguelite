@@ -12,8 +12,6 @@ extends CharacterBody2D
 #@onready var projectile_spawner: ProjectileSpawnerComponent = $ProjectileSpawnerComponent
 
 @export var stats: StatsComponent
-@export var ability1: Ability
-@export var ability2: Ability
 
 var time: float = 0
 
@@ -38,11 +36,6 @@ func _input(event: InputEvent) -> void:
 		time = weapon_component.melee_weapon.attack_speed
 		$MeleeWeaponComponent/HitboxComponent/CollisionShape2D.disabled = false
 		entity_movement.attack_lunge(1.2, direction, stats.movement_stats.max_speed)
-	
-	if event.is_action_pressed("skill 1"):
-		ability1.use_ability(self, direction)
-	if event.is_action_pressed("skill 2"):
-		ability2.use_ability(self, direction)
 		
 		
 	if event.is_action_pressed("debug_key"):
