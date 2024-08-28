@@ -42,6 +42,7 @@ polygon = PackedVector2Array(15, 12, 47, 124, -30, 207, -66, 293, 77, 378, 18, 4
 [node name="Enemy" parent="." instance=ExtResource("2_pnw0i")]
 position = Vector2(568, 213)
 stats = SubResource("Resource_lxyys")
+upgrades = ExtResource("10_iqmkb")
 
 [node name="Area2D" parent="." instance=ExtResource("5_lu26f")]
 position = Vector2(367, 160)

@@ -39,7 +39,7 @@ func calc_damage() -> Attack:
 	return new_attack
 
 # Set the variables of the projectile when instantiating through the ability class 
-func with_data(entity: Node2D, _dir: Vector2, _decay: float, _speed: float, _damage) -> Projectile:
+func with_data(entity: Node2D, _dir: Vector2, _decay: float, _speed: float, _damage: float) -> Projectile:
 	# Entity passes itself as a parameter
 	caster = entity
 	

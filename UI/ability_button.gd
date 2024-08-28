@@ -19,7 +19,7 @@ var change_key = "":
 		shortcut.events = [input_key]
 
 func _ready() -> void:
-	change_key = "1"
+	change_key = InputMap.action_get_events("skill 1")[0].as_text().trim_suffix(" (Physical)")
 	set_process(false)
 	
 func _process(delta: float) -> void:
