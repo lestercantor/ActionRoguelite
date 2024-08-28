@@ -12,6 +12,7 @@ extends CharacterBody2D
 #@onready var projectile_spawner: ProjectileSpawnerComponent = $ProjectileSpawnerComponent
 
 @export var stats: StatsComponent
+var ability1: Ability = Fireball.new()
 
 var time: float = 0
 

@@ -5,13 +5,13 @@ extends CharacterBody2D
 
 # Setting the attack value inside the spawn projectile component
 # Something that needs work... I want it inside calc_damage as local variable
-var new_attack = Attack.new()
 
 # Variables passed through from the ability script when instantiating the projectile
 var direction: Vector2
 var decay_timer: float
 var speed: float
 var caster
+var damage: float
 
 func _ready() -> void:
 	# Create simple one shot scene tree timer that connects to queue free when the timer ends
@@ -35,10 +35,11 @@ func on_hit(hurtbox: HurtboxComponent) -> void:
 
 # new_attack is getting assigned and is then passing it to the hitbox component
 func calc_damage() -> Attack:
+	var new_attack = Attack.new()._damage(damage)
 	return new_attack
 
 # Set the variables of the projectile when instantiating through the ability class 
-func with_data(entity: Node2D, _dir: Vector2, _decay: float, _speed: float, passed_attack: Attack) -> Projectile:
+func with_data(entity: Node2D, _dir: Vector2, _decay: float, _speed: float, _damage) -> Projectile:
 	# Entity passes itself as a parameter
 	caster = entity
 	
@@ -46,8 +47,7 @@ func with_data(entity: Node2D, _dir: Vector2, _decay: float, _speed: float, pass
 	direction = _dir
 	decay_timer = _decay
 	speed = _speed
-	new_attack = passed_attack
-	
+	damage = _damage
 	# Set position and rotation relative to the entity that cast it
 	global_position = entity.global_position
 	rotation = _dir.angle()

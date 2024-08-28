@@ -6,7 +6,7 @@ func _init() -> void:
 	name = "Fireball"
 	speed = 150.0
 	decay_timer = 1
-	mana_cost = 30
-	cooldown = 5
+	mana_cost = 1
+	cooldown = 1
 	
 	super._init()

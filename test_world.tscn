@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b711yw3elgm3q"]
+[gd_scene load_steps=13 format=3 uid="uid://b711yw3elgm3q"]
 
 [ext_resource type="Script" path="res://test_world.gd" id="1_3a6y7"]
 [ext_resource type="PackedScene" uid="uid://l5wnrn2jacup" path="res://Player/player.tscn" id="1_kphcb"]
@@ -28,22 +28,6 @@ health = 1000.0
 max_mana = 1000.0
 mana = 100.0
 
-[sub_resource type="Resource" id="Resource_3alxw"]
-resource_local_to_scene = true
-script = ExtResource("5_6iu04")
-movement_stats = ExtResource("4_10bag")
-damage_multiplier = 1.0
-damage_addition = 0.0
-crit_chance = 0.0
-crit_damage_modifier = 1.75
-spell_multiplier = 1.0
-spell_addition = 0.0
-spell_crit_chance = 0.0
-max_health = 1000.0
-health = 1000.0
-max_mana = 1000.0
-mana = 100.0
-
 [node name="TestWorld" type="Node2D"]
 script = ExtResource("1_3a6y7")
 
@@ -56,12 +40,8 @@ position = Vector2(468, 215)
 polygon = PackedVector2Array(15, 12, 47, 124, -30, 207, -66, 293, 77, 378, 18, 429, 134, 478, 242, 471, 272, 397, 356, 462, 371, 513, 493, 509, 571, 511, 593, 458, 652, 426, 686, 399, 731, 482, 706, 527, 788, 503, 898, 344, 843, 132, 724, 92, 604, 37, 520, 115, 264, 11, 220, -95, 18, 17, 436, -95, 821, -43, 1043, 232, 776, 654, -78, 607, -154, 227, -63, -11)
 
 [node name="Enemy" parent="." instance=ExtResource("2_pnw0i")]
-position = Vector2(547, 247)
+position = Vector2(568, 213)
 stats = SubResource("Resource_lxyys")
-
-[node name="Enemy2" parent="." instance=ExtResource("2_pnw0i")]
-position = Vector2(547, 211)
-stats = SubResource("Resource_3alxw")
 
 [node name="Area2D" parent="." instance=ExtResource("5_lu26f")]
 position = Vector2(367, 160)
@@ -84,11 +64,11 @@ position = Vector2(461, 136)
 upgrade = ExtResource("8_g7h68")
 
 [node name="Area2D6" parent="." instance=ExtResource("5_lu26f")]
-position = Vector2(369, 297)
+position = Vector2(390, 292)
 upgrade = ExtResource("9_0vfkx")
 
 [node name="Area2D7" parent="." instance=ExtResource("5_lu26f")]
-position = Vector2(393, 293)
+position = Vector2(351, 268)
 upgrade = ExtResource("9_0vfkx")
 
 [node name="Area2D8" parent="." instance=ExtResource("5_lu26f")]

@@ -28,7 +28,7 @@ func use_ability(entity: Node2D, direction: Vector2) -> void:
 	
 	# Set variables inside the projectile script before adding to scene tree...
 	# Using function inside the projectile to decouple and to enforce readability
-	var projectile: Projectile = projectile_scene.instantiate().with_data(entity, direction, decay_timer, speed, projectile_damage(entity.stats))
+	var projectile: Projectile = projectile_scene.instantiate().with_data(entity, direction, decay_timer, speed, projectile_damage(entity.stats).damage)
 	
 	# Get the entity that cast it and add to scene tree from the root 
 	# Making it a child of the entity that cast it means it will follow its position and rotation
@@ -55,6 +55,7 @@ func projectile_damage(entity_stats: StatsComponent) -> Attack:
 	
 	# Pass in the calculated damage through to the Attack class damage "constructor"
 	var new_projectile: Attack = Attack._damage(calculated_damage)
+	print("projectile damage: ", new_projectile.damage)
 	return new_projectile
 	
 func check_can_crit(entity_stats: StatsComponent) -> float:
