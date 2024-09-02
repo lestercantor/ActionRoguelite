@@ -1,24 +1,17 @@
 class_name Player
-extends CharacterBody2D
+extends Entity
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var entity_movement_input: EntityMovementVelocityInput = $EntityMovementVelocityInput
-@onready var entity_movement: EntityMovement = $EntityMovement
 @onready var hitbox_component: HitboxComponent = $MeleeWeaponComponent/HitboxComponent
 @onready var weapon_component: WeaponComponent = $MeleeWeaponComponent
-@onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 
-#@onready var projectile_spawner: ProjectileSpawnerComponent = $ProjectileSpawnerComponent
-
-@export var stats: StatsComponent
 var ability1: Ability = Fireball.new()
 
 var time: float = 0
 
 func _ready() -> void:
-	hurtbox_component.hurt.connect(player_hurt)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	super()
+	
 func _process(_delta: float) -> void:
 	pass
 	# animation_tree.set("animation blend", entity_movement_input.input)
@@ -35,7 +28,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("primary"):
 		hitbox_component.rotation = direction.angle()
 		time = weapon_component.melee_weapon.attack_speed
-		$MeleeWeaponComponent/HitboxComponent/CollisionShape2D.disabled = false
+		$MeleeWeaponComponent/HitboxComponent/WeaponCollisionShape.disabled = false
 		entity_movement.attack_lunge(1.2, direction, stats.movement_stats.max_speed)
 		
 		
@@ -44,8 +37,3 @@ func _input(event: InputEvent) -> void:
 		print("damage additions: ", stats.damage_addition)
 		print("crit chance: ", stats.crit_chance)
 		print("spell multiplier: ", stats.spell_multiplier)
-
-func player_hurt(_hitbox: HitboxComponent, received_attack: Attack) -> void:
-	# Subtract health with the damage that was dealt
-	stats.health -= received_attack.damage
-	hurtbox_component.start_invincibility(1)

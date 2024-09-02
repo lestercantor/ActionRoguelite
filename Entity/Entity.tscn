@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d30m6ol6j8sjg"]
+
+[ext_resource type="Script" path="res://Entity/entity.gd" id="1_hcrxv"]
+[ext_resource type="Script" path="res://Components/EntityMovement.gd" id="1_wra3q"]
+[ext_resource type="Script" path="res://Components/Hurtbox_Component.gd" id="2_sqfpo"]
+
+[node name="Entity" type="CharacterBody2D"]
+script = ExtResource("1_hcrxv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="EntityMovement" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("1_wra3q")
+actor = NodePath("..")
+
+[node name="EntityCollisionShape" type="CollisionShape2D" parent="."]
+
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("collision_shape", "invincibility_timer")]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_sqfpo")
+collision_shape = NodePath("HurtboxCollisionShape")
+invincibility_timer = NodePath("InvincibilityTimer")
+
+[node name="InvincibilityTimer" type="Timer" parent="HurtboxComponent"]
+one_shot = true
+
+[node name="HurtboxCollisionShape" type="CollisionShape2D" parent="HurtboxComponent"]

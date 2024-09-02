@@ -1,0 +1,69 @@
+[gd_scene load_steps=13 format=3 uid="uid://bt7lludcdigtd"]
+
+[ext_resource type="PackedScene" uid="uid://d30m6ol6j8sjg" path="res://Entity/Entity.tscn" id="1_pyht7"]
+[ext_resource type="Script" path="res://Entity/Player/player.gd" id="2_5pwtq"]
+[ext_resource type="Script" path="res://Components/EntityMovementVelocityInput.gd" id="3_0dlns"]
+[ext_resource type="Resource" uid="uid://cske6tb2qc2kd" path="res://Stats/StatsResource.tres" id="3_anfmr"]
+[ext_resource type="Script" path="res://Components/MeleeWeaponComponent.gd" id="3_j3r8x"]
+[ext_resource type="Resource" uid="uid://dwf0mbcsichxw" path="res://Weapons/Spear.tres" id="4_5g3b5"]
+[ext_resource type="Script" path="res://Components/Hitbox_Component.gd" id="5_d101p"]
+[ext_resource type="PackedScene" uid="uid://djm24jp5u4n1o" path="res://UI/ability_button.tscn" id="7_i2asj"]
+[ext_resource type="Script" path="res://UI/action_bar.gd" id="9_jhw1n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mtiqx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnede"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tr5a6"]
+
+[node name="Player" instance=ExtResource("1_pyht7")]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_5pwtq")
+stats = ExtResource("3_anfmr")
+
+[node name="EntityMovementVelocityInput" type="Node" parent="." index="2" node_paths=PackedStringArray("actor")]
+script = ExtResource("3_0dlns")
+actor = NodePath("..")
+
+[node name="EntityCollisionShape" parent="." index="3"]
+visible = false
+shape = SubResource("CircleShape2D_mtiqx")
+
+[node name="MeleeWeaponComponent" type="Node2D" parent="." index="4"]
+script = ExtResource("3_j3r8x")
+melee_weapon = ExtResource("4_5g3b5")
+
+[node name="HitboxComponent" type="Area2D" parent="MeleeWeaponComponent" index="0"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("5_d101p")
+
+[node name="WeaponCollisionShape" type="CollisionShape2D" parent="MeleeWeaponComponent/HitboxComponent" index="0"]
+position = Vector2(20, 0)
+shape = SubResource("RectangleShape2D_jnede")
+disabled = true
+
+[node name="HurtboxComponent" parent="." index="5"]
+collision_layer = 4
+
+[node name="HurtboxCollisionShape" parent="HurtboxComponent" index="1"]
+shape = SubResource("CircleShape2D_tr5a6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="6"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" index="0"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("9_jhw1n")
+
+[node name="TextureButton" parent="CanvasLayer/HBoxContainer" index="0" instance=ExtResource("7_i2asj")]
+layout_mode = 2

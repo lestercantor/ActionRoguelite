@@ -22,4 +22,4 @@ func _on_area_entered(hurtbox: HurtboxComponent) -> void:
 	hurtbox.hurt.emit(self, passed_attack)
 	
 	# Debug purposes
-	print("damage dealt: ", passed_attack.damage)
+	#print("damage dealt: ", passed_attack.damage)

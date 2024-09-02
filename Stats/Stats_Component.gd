@@ -39,7 +39,7 @@ signal stat_changed
 		# Signal that the health has changed so we can perform other functions
 		# Such as UI changes
 		health_changed.emit()
-		
+
 		# Signal that there is no health so we can queue_free()
 		if health <= 0: no_health.emit()
 

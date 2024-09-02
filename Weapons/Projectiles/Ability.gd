@@ -23,7 +23,7 @@ func button_data(button: AbilityButton) -> Ability:
 	return self
 
 
-func use_ability(entity: Node2D, direction: Vector2) -> void:
+func use_ability(entity: Entity, direction: Vector2) -> void:
 	if can_cast_ability(entity.stats): return
 	
 	# Set variables inside the projectile script before adding to scene tree...
@@ -55,7 +55,7 @@ func projectile_damage(entity_stats: StatsComponent) -> Attack:
 	
 	# Pass in the calculated damage through to the Attack class damage "constructor"
 	var new_projectile: Attack = Attack._damage(calculated_damage)
-	print("projectile damage: ", new_projectile.damage)
+	#print("projectile damage: ", new_projectile.damage)
 	return new_projectile
 	
 func check_can_crit(entity_stats: StatsComponent) -> float:

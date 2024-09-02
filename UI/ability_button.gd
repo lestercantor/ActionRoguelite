@@ -26,7 +26,9 @@ func _process(delta: float) -> void:
 	cooldown.text = "%3.1f" % timer.time_left
 	
 func _on_pressed() -> void:
-	if ability == null: return
+	if ability == null: 
+		print("ability is null")
+		return
 	
 	var direction: Vector2 = (get_global_mouse_position() - owner.position).normalized()
 	

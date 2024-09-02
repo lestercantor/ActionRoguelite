@@ -1,8 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://b711yw3elgm3q"]
+[gd_scene load_steps=14 format=3 uid="uid://b711yw3elgm3q"]
 
 [ext_resource type="Script" path="res://test_world.gd" id="1_3a6y7"]
-[ext_resource type="PackedScene" uid="uid://l5wnrn2jacup" path="res://Player/player.tscn" id="1_kphcb"]
-[ext_resource type="PackedScene" uid="uid://bnnewq2qr1kb0" path="res://Enemies/Enemy.tscn" id="2_pnw0i"]
 [ext_resource type="Resource" uid="uid://b156uyywhc8xy" path="res://Resources/EntityMovementStats.tres" id="4_10bag"]
 [ext_resource type="Script" path="res://Stats/Stats_Component.gd" id="5_6iu04"]
 [ext_resource type="PackedScene" uid="uid://cjw7ebh5x3e0m" path="res://Upgrades/Test_World_Upgrade.tscn" id="5_lu26f"]
@@ -11,8 +9,26 @@
 [ext_resource type="Resource" uid="uid://dfchpi7mbpien" path="res://Upgrades/RES_Critical_Hit_Chance.tres" id="8_g7h68"]
 [ext_resource type="Resource" uid="uid://dr2ux6m6d5ask" path="res://Upgrades/RES_Multiplicative_Spell.tres" id="9_0vfkx"]
 [ext_resource type="Resource" uid="uid://dwmkv5x7grp27" path="res://Upgrades/RES_Additive_Spell.tres" id="10_iqmkb"]
+[ext_resource type="PackedScene" uid="uid://bt7lludcdigtd" path="res://Entity/Player/Player.tscn" id="11_u73xa"]
+[ext_resource type="PackedScene" uid="uid://bnnewq2qr1kb0" path="res://Entity/Enemies/Enemy.tscn" id="11_vd7rf"]
 
-[sub_resource type="Resource" id="Resource_lxyys"]
+[sub_resource type="Resource" id="Resource_g8o0k"]
+resource_local_to_scene = true
+script = ExtResource("5_6iu04")
+movement_stats = ExtResource("4_10bag")
+damage_multiplier = 1.0
+damage_addition = 0.0
+crit_chance = 0.0
+crit_damage_modifier = 1.75
+spell_multiplier = 1.0
+spell_addition = 0.0
+spell_crit_chance = 0.0
+max_health = 1000.0
+health = 1000.0
+max_mana = 1000.0
+mana = 100.0
+
+[sub_resource type="Resource" id="Resource_5cpia"]
 resource_local_to_scene = true
 script = ExtResource("5_6iu04")
 movement_stats = ExtResource("4_10bag")
@@ -31,18 +47,10 @@ mana = 100.0
 [node name="TestWorld" type="Node2D"]
 script = ExtResource("1_3a6y7")
 
-[node name="Player" parent="." instance=ExtResource("1_kphcb")]
-position = Vector2(468, 215)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(15, 12, 47, 124, -30, 207, -66, 293, 77, 378, 18, 429, 134, 478, 242, 471, 272, 397, 356, 462, 371, 513, 493, 509, 571, 511, 593, 458, 652, 426, 686, 399, 731, 482, 706, 527, 788, 503, 898, 344, 843, 132, 724, 92, 604, 37, 520, 115, 264, 11, 220, -95, 18, 17, 436, -95, 821, -43, 1043, 232, 776, 654, -78, 607, -154, 227, -63, -11)
-
-[node name="Enemy" parent="." instance=ExtResource("2_pnw0i")]
-position = Vector2(568, 213)
-stats = SubResource("Resource_lxyys")
-upgrades = ExtResource("10_iqmkb")
 
 [node name="Area2D" parent="." instance=ExtResource("5_lu26f")]
 position = Vector2(367, 160)
@@ -79,3 +87,11 @@ upgrade = ExtResource("10_iqmkb")
 [node name="Area2D9" parent="." instance=ExtResource("5_lu26f")]
 position = Vector2(445, 288)
 upgrade = ExtResource("10_iqmkb")
+
+[node name="Player" parent="." instance=ExtResource("11_u73xa")]
+position = Vector2(477, 201)
+stats = SubResource("Resource_g8o0k")
+
+[node name="EnemyTest" parent="." instance=ExtResource("11_vd7rf")]
+position = Vector2(565, 205)
+stats = SubResource("Resource_5cpia")
