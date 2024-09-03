@@ -20,7 +20,6 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if time > 0:
 		time -= delta
-		#$WeaponComponent/HitboxComponent/CollisionShape2D.disabled = true
 
 # Simple enable and disable hitbox collisions 
 func _input(event: InputEvent) -> void:
@@ -29,7 +28,7 @@ func _input(event: InputEvent) -> void:
 		hitbox_component.rotation = direction.angle()
 		time = weapon_component.melee_weapon.attack_speed
 		$MeleeWeaponComponent/HitboxComponent/WeaponCollisionShape.disabled = false
-		entity_movement.attack_lunge(1.2, direction, stats.movement_stats.max_speed)
+		entity_movement.dash(1.2, direction, stats.movement_stats.max_speed)
 		
 		
 	if event.is_action_pressed("debug_key"):
@@ -37,3 +36,6 @@ func _input(event: InputEvent) -> void:
 		print("damage additions: ", stats.damage_addition)
 		print("crit chance: ", stats.crit_chance)
 		print("spell multiplier: ", stats.spell_multiplier)
+		
+	if event.is_action_pressed("dash"):
+		entity_movement.dash(5, entity_movement_input.movement_input, stats.movement_stats.max_speed)

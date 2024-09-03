@@ -15,5 +15,6 @@ func _physics_process(delta: float) -> void:
 	actor.move_and_slide()
 
 
-func attack_lunge(lunge_speed: float, direction: Vector2, max_speed: float) -> void:
-	actor.velocity = direction.normalized() * max_speed * lunge_speed
+func dash(dash_speed: float, direction: Vector2, max_speed: float) -> void:
+	actor.velocity = direction.normalized() * max_speed * dash_speed
+	
