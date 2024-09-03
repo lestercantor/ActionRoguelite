@@ -9,9 +9,14 @@ script = ExtResource("1_hcrxv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="EntityMovement" type="Node" parent="." node_paths=PackedStringArray("actor")]
+[node name="EntityMovement" type="Node" parent="." node_paths=PackedStringArray("actor", "dash_timer")]
 script = ExtResource("1_wra3q")
 actor = NodePath("..")
+dash_timer = NodePath("DashTimer")
+
+[node name="DashTimer" type="Timer" parent="EntityMovement"]
+wait_time = 1.5
+one_shot = true
 
 [node name="EntityCollisionShape" type="CollisionShape2D" parent="."]
 

@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b85qsasf2tp8"]
-
-[ext_resource type="PackedScene" uid="uid://blusjk6mhhglr" path="res://Weapons/Projectiles/Base_Projectile.tscn" id="1_whe53"]
-
-[node name="BaseProjectile" instance=ExtResource("1_whe53")]

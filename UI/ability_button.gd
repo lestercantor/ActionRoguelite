@@ -23,8 +23,11 @@ func _ready() -> void:
 	set_process(false)
 	
 func _process(delta: float) -> void:
-	cooldown.text = "%3.1f" % timer.time_left
-	
+	if timer.time_left >= 3:
+		cooldown.text = "%2.0f" % floorf(timer.time_left)
+	else:
+		cooldown.text = "%3.1f" % (timer.time_left)
+
 func _on_pressed() -> void:
 	if ability == null: 
 		print("ability is null")
@@ -39,6 +42,6 @@ func _on_pressed() -> void:
 
 
 func _on_timer_timeout() -> void:
-	disabled = false
 	cooldown.text = ""
 	set_process(false)
+	disabled = false

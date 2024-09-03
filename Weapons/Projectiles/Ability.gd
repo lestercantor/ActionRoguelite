@@ -16,7 +16,7 @@ signal no_mana
 var projectile_scene: PackedScene
 
 func _init() -> void:
-	projectile_scene = load("res://Weapons/Projectiles/" + name +".tscn")
+	projectile_scene = load("res://Weapons/Projectiles/" + name + "/" + name + ".tscn")
 	
 func button_data(button: AbilityButton) -> Ability:
 	button.timer.wait_time = cooldown

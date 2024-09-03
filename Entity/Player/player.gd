@@ -5,7 +5,7 @@ extends Entity
 @onready var hitbox_component: HitboxComponent = $MeleeWeaponComponent/HitboxComponent
 @onready var weapon_component: WeaponComponent = $MeleeWeaponComponent
 
-var ability1: Ability = Fireball.new()
+var ability1: Ability = IceShard.new()
 
 var time: float = 0
 
