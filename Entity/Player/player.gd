@@ -1,11 +1,16 @@
 class_name Player
 extends Entity
 
+signal ability_change
+
 @onready var entity_movement_input: EntityMovementVelocityInput = $EntityMovementVelocityInput
 @onready var hitbox_component: HitboxComponent = $MeleeWeaponComponent/HitboxComponent
 @onready var weapon_component: WeaponComponent = $MeleeWeaponComponent
 
-var ability1: Ability = IceShard.new()
+var ability1: Ability = IceShard.new():
+	set(value):
+		ability1 = value
+		ability_change.emit()
 
 var time: float = 0
 

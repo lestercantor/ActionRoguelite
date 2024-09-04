@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b711yw3elgm3q"]
+[gd_scene load_steps=15 format=3 uid="uid://b711yw3elgm3q"]
 
 [ext_resource type="Script" path="res://test_world.gd" id="1_3a6y7"]
 [ext_resource type="Resource" uid="uid://b156uyywhc8xy" path="res://Resources/EntityMovementStats.tres" id="4_10bag"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://dwmkv5x7grp27" path="res://Upgrades/RES_Additive_Spell.tres" id="10_iqmkb"]
 [ext_resource type="PackedScene" uid="uid://bt7lludcdigtd" path="res://Entity/Player/Player.tscn" id="11_u73xa"]
 [ext_resource type="PackedScene" uid="uid://bnnewq2qr1kb0" path="res://Entity/Enemies/Enemy.tscn" id="11_vd7rf"]
+[ext_resource type="Script" path="res://UI/Ability_Swap_TEST.gd" id="12_bs2ci"]
 
 [sub_resource type="Resource" id="Resource_g8o0k"]
 resource_local_to_scene = true
@@ -95,3 +96,27 @@ stats = SubResource("Resource_g8o0k")
 [node name="EnemyTest" parent="." instance=ExtResource("11_vd7rf")]
 position = Vector2(565, 205)
 stats = SubResource("Resource_5cpia")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 748.0
+offset_top = 452.0
+offset_right = 848.0
+offset_bottom = 503.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_bs2ci")

@@ -39,7 +39,7 @@ func _on_pressed() -> void:
 	timer.start()
 	disabled = true
 	set_process(true)
-
+	print(ability.name)
 
 func _on_timer_timeout() -> void:
 	cooldown.text = ""

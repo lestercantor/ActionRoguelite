@@ -7,6 +7,6 @@ func _init() -> void:
 	speed = 150.0
 	decay_timer = 1
 	mana_cost = 1
-	cooldown = 1
+	cooldown = 10
 	
 	super._init()
