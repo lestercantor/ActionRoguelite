@@ -16,6 +16,7 @@ var time: float = 0
 
 func _ready() -> void:
 	super()
+	GlobalSignal.change_ability.connect(test_change)
 	
 func _process(_delta: float) -> void:
 	pass
@@ -44,3 +45,6 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("dash"):
 		entity_movement.dash(5, entity_movement_input.movement_input, stats.movement_stats.max_speed)
+
+func test_change(new_ability: Ability) -> void:
+	ability1 = new_ability

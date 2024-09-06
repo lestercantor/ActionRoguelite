@@ -120,3 +120,5 @@ offset_bottom = 503.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("12_bs2ci")
+
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]
