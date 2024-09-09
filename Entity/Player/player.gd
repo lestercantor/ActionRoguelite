@@ -7,7 +7,7 @@ signal ability_change
 @onready var hitbox_component: HitboxComponent = $MeleeWeaponComponent/HitboxComponent
 @onready var weapon_component: WeaponComponent = $MeleeWeaponComponent
 
-var ability1: Ability = IceShard.new():
+var ability1: Ability = Ice_Shard.new():
 	set(value):
 		ability1 = value
 		ability_change.emit()
@@ -45,6 +45,7 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("dash"):
 		entity_movement.dash(5, entity_movement_input.movement_input, stats.movement_stats.max_speed)
+		ClassDB.get_inheriters_from_class("Ability")
 
 func test_change(new_ability: Ability) -> void:
 	ability1 = new_ability

@@ -1,5 +1,5 @@
 extends Ability
-class_name IceShard
+class_name Ice_Shard
 
 func _init() -> void:
 	damage = 85
