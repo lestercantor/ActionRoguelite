@@ -10,7 +10,7 @@ extends CharacterBody2D
 var direction: Vector2
 var decay_timer: float
 var speed: float
-var caster
+var caster: Entity
 var damage: float
 
 func _ready() -> void:
@@ -35,7 +35,7 @@ func on_hit(hurtbox: HurtboxComponent) -> void:
 
 # new_attack is getting assigned and is then passing it to the hitbox component
 func calc_damage() -> Attack:
-	var new_attack = Attack.new()._damage(damage)
+	var new_attack = Attack._damage(damage)
 	return new_attack
 
 # Set the variables of the projectile when instantiating through the ability class 

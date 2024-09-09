@@ -7,5 +7,5 @@ var increase: float:
 	get:
 		return float(increase_percentage / 100)
 
-func apply_upgrade(stats: StatsComponent):
+func apply_upgrade(stats: StatsComponent) -> void:
 	stats.new_stat("damage_multiplier", increase, stats.damage_multiplier) 

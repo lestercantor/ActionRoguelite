@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b711yw3elgm3q"]
+[gd_scene load_steps=16 format=3 uid="uid://b711yw3elgm3q"]
 
 [ext_resource type="Script" path="res://test_world.gd" id="1_3a6y7"]
 [ext_resource type="Resource" uid="uid://b156uyywhc8xy" path="res://Resources/EntityMovementStats.tres" id="4_10bag"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bt7lludcdigtd" path="res://Entity/Player/Player.tscn" id="11_u73xa"]
 [ext_resource type="PackedScene" uid="uid://bnnewq2qr1kb0" path="res://Entity/Enemies/Enemy.tscn" id="11_vd7rf"]
 [ext_resource type="Script" path="res://UI/Ability_Swap_TEST.gd" id="12_bs2ci"]
+[ext_resource type="PackedScene" uid="uid://cixatvptbsnb6" path="res://Upgrades/upgrade_button.tscn" id="13_46a1s"]
 
 [sub_resource type="Resource" id="Resource_g8o0k"]
 resource_local_to_scene = true
@@ -120,5 +121,12 @@ offset_bottom = 503.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("12_bs2ci")
+
+[node name="TextureButton" parent="." instance=ExtResource("13_46a1s")]
+offset_left = 39.0
+offset_top = 458.0
+offset_right = 137.0
+offset_bottom = 508.0
+upgrade = ExtResource("10_iqmkb")
 
 [connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]

@@ -17,6 +17,7 @@ var time: float = 0
 func _ready() -> void:
 	super()
 	GlobalSignal.change_ability.connect(test_change)
+	GlobalSignal.upgrade_stat.connect(add_stat)
 	
 func _process(_delta: float) -> void:
 	pass
@@ -41,7 +42,7 @@ func _input(event: InputEvent) -> void:
 		print("damage multiplier: ", stats.damage_multiplier)
 		print("damage additions: ", stats.damage_addition)
 		print("crit chance: ", stats.crit_chance)
-		print("spell multiplier: ", stats.spell_multiplier)
+		print("spell additions: ", stats.spell_addition)
 		
 	if event.is_action_pressed("dash"):
 		entity_movement.dash(5, entity_movement_input.movement_input, stats.movement_stats.max_speed)
@@ -49,3 +50,6 @@ func _input(event: InputEvent) -> void:
 
 func test_change(new_ability: Ability) -> void:
 	ability1 = new_ability
+
+func add_stat(upgrade: BaseUpgrade) -> void:
+	upgrade.apply_upgrade(self.stats)

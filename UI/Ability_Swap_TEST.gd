@@ -23,5 +23,5 @@ func _ready() -> void:
 func _on_pressed() -> void:
 	var rand_ability_name: String = (abilities[randi() % abilities.size()]).capitalize()
 	var rand_ability = load("res://Weapons/Projectiles/" + rand_ability_name + "/" + rand_ability_name + ".gd")
-	
+	print(rand_ability_name)
 	GlobalSignal.change_ability.emit(rand_ability.new())
